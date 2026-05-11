@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мультфильмы: вред или польза? | Исследовательский проект</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #eef6ff 0%, #fff7e8 100%);
+            color: #1e2a3a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(135deg, #ffde9c 0%, #ffeac2 100%);
+            border-radius: 2rem;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+            border: 1px solid #ffd58c;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1f6392;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #3a5d7c;
+        }
+        .hero .tag {
+            background: #ffffffcc;
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            color: #1f6392;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 1.8rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            transition: 0.2s;
+            border: 1px solid #ffecb3;
+        }
+        .section:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1f6392;
+            border-left: 6px solid #f7b32b;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2a6b9e;
+            margin: 1.2rem 0 0.8rem 0;
+        }
+
+        .grid-2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+        .col {
+            flex: 1;
+            min-width: 240px;
+            background: #fefce8;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #ffe2a4;
+        }
+
+        .time-card {
+            background: #eef5ff;
+            border-radius: 1.2rem;
+            padding: 0.2rem 0;
+        }
+        .time-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #cde3f5;
+            font-weight: 500;
+        }
+        .time-row:last-child {
+            border-bottom: none;
+        }
+
+        .poll-number {
+            font-weight: 800;
+            color: #c95f1a;
+            background: #fff0d0;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        .quote {
+            background: #fff5e0;
+            padding: 1.2rem;
+            border-radius: 1.2rem;
+            font-style: italic;
+            margin: 1.2rem 0;
+            border-left: 5px solid #f7b32b;
+        }
+
+        .rule-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .rule-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .rule-list li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* галерея картинок */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .gallery-item {
+            background: white;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            width: 140px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            border: 1px solid #ffe0a3;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        .gallery-item p {
+            padding: 0.5rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            background: #fff3dc;
+        }
+
+        .booklet-demo {
+            background: #d9eaff;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+            max-width: 320px;
+            margin: 1rem auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: #2c577c;
+            border-top: 1px solid #fddf8e;
+            margin-top: 1rem;
+            background: #fef3da;
+            border-radius: 1.5rem;
+        }
+
+        @media (max-width: 750px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .section {
+                padding: 1.2rem;
+            }
+        }
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: #fcda9a;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>📺 Мультфильмы: вред или польза?</h1>
+        <p>Исследование детей и взрослых • 47 участников</p>
+        <div class="tag">🎓 Классика объединяет поколения</div>
+    </div>
+
+    <!-- Введение -->
+    <div class="section">
+        <h2>❓ Введение</h2>
+        <p>Сегодня мультфильмы стали неотъемлемой частью жизни каждого ребёнка. Дети проводят у экранов до 3 часов в день и воспринимают увиденное как руководство к действию. Но как отличить полезную анимацию от вредной? Давайте разбираться.</p>
+    </div>
+
+    <!-- Время у экрана -->
+    <div class="section">
+        <h2>⏱️ Сколько времени можно проводить у экрана?</h2>
+        <p>ВОЗ и педиатры дают чёткие рекомендации (суммарно ТВ + планшет + телефон):</p>
+        <div class="time-card">
+            <div class="time-row"><span>👶 До 3 лет</span> <span><strong>не рекомендуется</strong> (формирование мозга)</span></div>
+            <div class="time-row"><span>🧸 3–7 лет (дошкольники)</span> <span><strong>не более 30 минут</strong> в день (лучше 10–15 минут за раз)</span></div>
+            <div class="time-row"><span>📚 7–10 лет (школьники)</span> <span><strong>30–50 минут</strong> в день</span></div>
+            <div class="time-row"><span>📱 11–18 лет (подростки)</span> <span><strong>1–3 часа</strong> с перерывами, не перед сном</span></div>
+        </div>
+        <p class="quote">⭐ Важно: экранное время — это сумма всего времени перед телевизором, планшетом и телефоном.</p>
+    </div>
+
+    <!-- Результаты опроса -->
+    <div class="section">
+        <h2>📊 Результаты опроса: что любят дети и взрослые?</h2>
+        <p><strong>47 человек:</strong> 27 детей, 20 взрослых. Вопрос: «Какой твой любимый мультфильм или герой?»</p>
+        <div class="grid-2">
+            <div class="col">
+                <h3>🧒 ДЕТИ (27 чел., 47 ответов)</h3>
+                <ul>
+                    <li>🐱 «Три кота» — <span class="poll-number">9</span></li>
+                    <li>🐕 «Щенячий патруль» — <span class="poll-number">7</span></li>
+                    <li>🏠 «Простоквашино» — <span class="poll-number">7</span></li>
+                    <li>🐻 «Маша и медведь» — <span class="poll-number">6</span></li>
+                    <li>🔧 «Фиксики» — <span class="poll-number">5</span></li>
+                    <li>⭐ «Смешарики», «Лунтик» — по 4</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>👩‍🦰 ВЗРОСЛЫЕ (20 чел., 32 ответа)</h3>
+                <ul>
+                    <li>🏠 «Простоквашино» — <span class="poll-number">7</span></li>
+                    <li>⚔️ «Три богатыря» — <span class="poll-number">6</span></li>
+                    <li>🐺 «Ну, погоди!» — <span class="poll-number">5</span></li>
+                    <li>🐊 «Чебурашка» — <span class="poll-number">4</span></li>
+                    <li>🍯 «Винни-Пух» (сов.) — <span class="poll-number">4</span></li>
+                    <li>👹 «Шрек», «Монстры на каникулах» — по 3</li>
+                </ul>
+            </div>
+        </div>
+        <p>📌 <strong>Вывод:</strong> взрослые выбирают мультфильмы детства (ностальгия, доброта), дети — яркие динамичные истории. Но <strong>«Простоквашино»</strong> в топе у всех. Классика не стареет.</p>
+    </div>
+
+    <!-- Польза и вред -->
+    <div class="grid-2">
+        <div class="col">
+            <h3>✅ ЧЕМ ПОЛЕЗНЫ?</h3>
+            <ul>
+                <li>🧠 Развивают интеллект, воображение, кругозор</li>
+                <li>🎭 Эмоциональный интеллект, эмпатия</li>
+                <li>🗣️ Обогащают речь, словарный запас</li>
+                <li>❤️ Учат дружбе, добру, ответственности</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>⚠️ ЧЕМ ВРЕДНЫ?</h3>
+            <ul>
+                <li>😟 Перегрузка нервной системы, тревожность</li>
+                <li>📉 Пассивное восприятие → тормозит речь</li>
+                <li>👿 Агрессия, страхи, копирование плохих героев</li>
+                <li>📱 Зависимость, гиподинамия, падение зрения</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Как выбрать хороший мультфильм: 5 правил -->
+    <div class="section">
+        <h2>✅ Как выбрать хороший мультфильм: 5 правил</h2>
+        <ul class="rule-list">
+            <li><strong>Чёткое разделение добра и зла</strong> – злодей получает по заслугам.</li>
+            <li><strong>Герои демонстрируют уважение, эмпатию</strong>, учат справляться с трудностями.</li>
+            <li><strong>Плавная анимация, спокойные цвета</strong> (никаких «кислотных» оттенков).</li>
+            <li><strong>Приятный звук, грамотная речь</strong> без резких криков.</li>
+            <li><strong>Логичный, понятный сюжет</strong> без мелькания кадров.</li>
+        </ul>
+    </div>
+
+    <!-- Картинки популярных мультфильмов -->
+    <div class="section">
+        <h2>🎬 Любимые герои детей и взрослых</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/1/1c/Tri_kota_poster.jpg/200px-Tri_kota_poster.jpg" alt="Три кота" loading="lazy">
+                <p>🐱 Три кота</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://upload.wikimedia.org/wikipedia/ru/3/3b/Prostokvashino_poster.jpg" alt="Простоквашино" loading="lazy">
+                <p>🏠 Простоквашино</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://upload.wikimedia.org/wikipedia/ru/1/1a/Shonyachy_patrul_poster.jpg" alt="Щенячий патруль" loading="lazy">
+                <p>🐕 Щенячий патруль</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://upload.wikimedia.org/wikipedia/ru/6/6b/Masha_and_the_Bear_logo.png" alt="Маша и Медведь" loading="lazy">
+                <p>🐻 Маша и Медведь</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://upload.wikimedia.org/wikipedia/ru/9/9a/Fixiki_logo.png" alt="Фиксики" loading="lazy">
+                <p>🔧 Фиксики</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://upload.wikimedia.org/wikipedia/ru/0/07/Smeshariki_logo.png" alt="Смешарики" loading="lazy">
+                <p>⭐ Смешарики</p>
+            </div>
+        </div>
+        <p class="quote">⭐ <em>«Простоквашино» — мост между поколениями: новые серии с 2018 года, доброта и уют.</em></p>
+    </div>
+
+    <!-- Список для семейного просмотра -->
+    <div class="section">
+        <h2>⭐ Что посмотреть: фильмы для семейного просмотра</h2>
+        <ul>
+            <li>✅ «Аленький цветочек» (1978)</li>
+            <li>✅ «В стране невыученных уроков» (1977)</li>
+            <li>✅ «Винни Пух и все, все, все» (1969)</li>
+            <li>✅ «Вовка в Тридевятом царстве» (1965)</li>
+            <li>✅ «Двенадцать месяцев» (1956)</li>
+            <li>✅ «Котенок по имени Гав» (1976)</li>
+            <li>✅ «Смешарики» (с 2003 года)</li>
+        </ul>
+    </div>
+
+    <!-- Вместо экрана -->
+    <div class="section">
+        <h2>💡 Вместо экрана: чем занять ребёнка?</h2>
+        <div class="grid-2">
+            <div class="col">📖 <strong>Читайте книги по мотивам</strong> – любимые герои ждут.</div>
+            <div class="col">🎨 <strong>Рисуйте персонажей</strong> – развивает моторику.</div>
+            <div class="col">🎭 <strong>Домашний театр</strong> – разыграйте сценку с игрушками.</div>
+            <div class="col">👩‍🍳 <strong>Готовьте вместе</strong> – печенье в форме героев.</div>
+            <div class="col">🎲 <strong>Настольные игры с героями</strong> – общение и смех.</div>
+            <div class="col">🏃 <strong>Активные игры на улице</strong> – эстафеты, догонялки.</div>
+        </div>
+    </div>
+
+    <!-- Главный итог -->
+    <div class="section">
+        <h2>💎 Главный итог</h2>
+        <p>Мультфильм может быть и полезным, и вредным — всё зависит от <strong>трёх главных условий</strong>: времени просмотра, качества контента и совместного просмотра с обсуждением.</p>
+        <p>Дети до 7–8 лет копируют поведение героев. Если не обсуждать поступки персонажей, ребёнок рискует перенести негативные модели в реальную жизнь.</p>
+        <div class="quote">
+            🌟 <strong>Лучший способ превратить любую анимацию в развивающий инструмент — совместный просмотр и искренние беседы.</strong><br>
+            <em>«Смотрите вместе, обсуждайте и выбирайте качественные истории!»</em>
+        </div>
+    </div>
+
+    <!-- Продукт проекта (буклет) -->
+    <div class="section" style="text-align: center;">
+        <h2>📘 Продукт проекта</h2>
+        <div class="booklet-demo">
+            🧾 <strong>Буклет для родителей</strong><br>
+            • возрастные нормы (30–50 минут)<br>
+            • список полезных мультфильмов по возрасту<br>
+            • 10 правил безопасного просмотра<br>
+            • как обсуждать героев
+        </div>
+        <p>🎁 Буклет роздан участникам опроса. Главная мысль: <strong>«Смотрите вместе, говорите о важном»</strong>.</p>
+    </div>
+
+    <!-- Автор и руководитель -->
+    <footer>
+        📌 Проект выполнила: <strong>Сидикова Шахзода Собитхоновна</strong><br>
+        👨‍🏫 Руководитель: <strong>Волков Максим Анатольевич</strong><br>
+        📍 Город Обнинск, 2026 год<br>
+        🧸 Все права защищены. Исследование на тему «Мультфильмы: вред или польза?»
+    </footer>
+</div>
+</body>
+</html>
